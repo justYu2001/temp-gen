@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "format": "prettier . -u --no-error-on-unmatched-pattern --write",
+    "format:check": "prettier . -u --no-error-on-unmatched-pattern --check"
   },
   "keywords": [],
   "author": "",
