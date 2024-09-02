@@ -7,7 +7,9 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "format": "prettier . -u --no-error-on-unmatched-pattern --write",
-    "format:check": "prettier . -u --no-error-on-unmatched-pattern --check"
+    "format:check": "prettier . -u --no-error-on-unmatched-pattern --check",
+    "lint": "eslint .",
+    "lint:fix" : "pnpm lint --fix"
   },
   "keywords": [],
   "author": "",
