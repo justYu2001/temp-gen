@@ -9,7 +9,8 @@
     "format": "prettier . -u --no-error-on-unmatched-pattern --write",
     "format:check": "prettier . -u --no-error-on-unmatched-pattern --check",
     "lint": "eslint .",
-    "lint:fix" : "pnpm lint --fix"
+    "lint:fix": "pnpm lint --fix",
+    "typecheck": "tsc"
   },
   "keywords": [],
   "author": "",
