@@ -34,7 +34,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-typescript-sort-keys": "^3.2.0",
     "prettier": "^3.3.3",
-    "tsup": "^8.2.4",
+    "tsup": "^6.7.0",
     "type-fest": "^4.26.0",
     "typescript": "^5.5.4"
   },
