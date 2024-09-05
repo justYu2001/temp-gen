@@ -23,6 +23,9 @@ const config = {
       { prefer: "type-imports", fixStyle: "inline-type-imports" },
     ],
     "import/consistent-type-specifier-style": ["error", "prefer-inline"],
+
+    // This rule doesn't seem to be working properly
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
   },
 };
 

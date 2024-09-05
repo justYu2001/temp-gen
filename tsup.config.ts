@@ -9,5 +9,5 @@ export default defineConfig({
   minify: !isDev,
   target: "esnext",
   outDir: "dist",
-  onSuccess: isDev ? "node dist/index.mjs" : undefined,
+  onSuccess: isDev ? "node dist/index.js" : undefined,
 });

@@ -1,6 +1,9 @@
 {
   "extends": "@total-typescript/tsconfig/bundler/no-dom",
+  "exclude": ["template"],
   "compilerOptions": {
+    "module": "node16",
+    "moduleResolution": "nodenext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
