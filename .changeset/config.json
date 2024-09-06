@@ -1,8 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
-  "changelog": ["@changesets/changelog-github", {
-    "repo": "justYu2001/temp-gen"
-  }],
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "justYu2001/temp-gen"
+    }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],
