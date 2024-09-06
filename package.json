@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "format": "prettier . -u --no-error-on-unmatched-pattern --write",
-    "format:check": "prettier . -u --no-error-on-unmatched-pattern --check",
+    "format": "prettier '**/*.{cjs,mjs,ts,md,json,yml}' -u --no-error-on-unmatched-pattern --write",
+    "format:check": "prettier '**/*.{cjs,mjs,ts,md,json,yml}' -u --no-error-on-unmatched-pattern --check",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
     "typecheck": "tsc",
