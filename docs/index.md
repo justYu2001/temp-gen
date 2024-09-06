@@ -23,7 +23,7 @@ Removes the trailing slash from a given string if it exists and the string lengt
 #### **Example Usage**
 
 ```typescript
-import { removeTrailingSlash } from '@/utils/removeTrailingSlash.js';
+import { removeTrailingSlash } from "@/utils/removeTrailingSlash.js";
 
 // Example 1: Input string with trailing slash
 const urlWithSlash = "https://example.com/";
