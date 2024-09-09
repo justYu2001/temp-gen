@@ -29,7 +29,7 @@ jobs:
       - name: Check and Validate Changes
         run: |
           git fetch origin main:main
-          changes=$(git diff --name-only main...${{ github.sha }} | grep '^(src/|template/)' || true)
+          changes=$(git diff --name-only main...${{ github.sha }} | grep '^\(src/\|template/\)' || true)
           if [[ -n "$changes" ]]; then
             echo "Changes detected: $changes"
             pnpm changeset status --since origin/main
