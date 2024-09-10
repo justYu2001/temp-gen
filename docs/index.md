@@ -40,3 +40,35 @@ const singleChar = "/";
 const result3 = removeTrailingSlash(singleChar);
 console.log(result3); // Output: "/"
 ```
+
+### `renameFileInFolder`
+
+The `renameFileInFolder` function is a utility that renames a file within a specified folder.
+
+#### Parameters
+
+- `folderPath: string`
+
+  The path to the folder containing the file to be renamed.
+
+- `originalName: string`
+
+  The current name of the file that needs to be renamed.
+
+- `newName: string`
+
+  The new name for the file.
+
+#### Example Usage
+
+```typescript
+import { renameFileInFolder } from "./path/to/your/module";
+
+const folderPath = "./myFolder";
+const originalName = "oldFileName.txt";
+const newName = "newFileName.txt";
+
+renameFileInFolder(folderPath, originalName, newName);
+```
+
+In the above example, the file `oldFileName.txt` in the `./myFolder` directory will be renamed to `newFileName.txt`.
