@@ -12,13 +12,13 @@ Removes the trailing slash from a given string if it exists and the string lengt
 
 - `input: string`
 
-  The input string from which the trailing slash should be removed.
+  - The input string from which the trailing slash should be removed.
 
 #### **Returns**
 
 - `string`
 
-  The input string without the trailing slash if it originally had one and its length was greater than 1. Otherwise, returns the input string unchanged.
+  - The input string without the trailing slash if it originally had one and its length was greater than 1. Otherwise, returns the input string unchanged.
 
 #### **Example Usage**
 
@@ -49,15 +49,15 @@ The `renameFileInFolder` function is a utility that renames a file within a spec
 
 - `folderPath: string`
 
-  The path to the folder containing the file to be renamed.
+  - The path to the folder containing the file to be renamed.
 
 - `originalName: string`
 
-  The current name of the file that needs to be renamed.
+  - The current name of the file that needs to be renamed.
 
 - `newName: string`
 
-  The new name for the file.
+  - The new name for the file.
 
 #### Example Usage
 
