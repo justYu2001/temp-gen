@@ -8,19 +8,19 @@ The `src/utils` folder contains all the until functions. You can check the code 
 
 Removes the trailing slash from a given string if it exists and the string length is greater than 1.
 
-#### **Parameters**
+#### Parameters
 
 - `input: string`
 
   - The input string from which the trailing slash should be removed.
 
-#### **Returns**
+#### Returns
 
 - `string`
 
   - The input string without the trailing slash if it originally had one and its length was greater than 1. Otherwise, returns the input string unchanged.
 
-#### **Example Usage**
+#### Example Usage
 
 ```typescript
 import { removeTrailingSlash } from "@/utils/removeTrailingSlash.js";
@@ -62,7 +62,7 @@ The `renameFileInFolder` function is a utility that renames a file within a spec
 #### Example Usage
 
 ```typescript
-import { renameFileInFolder } from "./path/to/your/module";
+import { renameFileInFolder } from "@/utils/renameFileInFoler.js";
 
 const folderPath = "./myFolder";
 const originalName = "oldFileName.txt";
@@ -72,3 +72,40 @@ renameFileInFolder(folderPath, originalName, newName);
 ```
 
 In the above example, the file `oldFileName.txt` in the `./myFolder` directory will be renamed to `newFileName.txt`.
+
+### `replaceTextInFile`
+
+This function reads the content of a file, replaces specified text patterns with corresponding replacements, and writes the modified content to a new file.
+
+#### Parameters
+
+- `options: ReplaceTextInFileOptions<TReplacer>`
+  - An object containing the following properties:
+    - `sourcePath: string`
+      - The path to the source file whose content needs to be read and modified.
+    - `replacementMapping: Record<TReplacer, string>`
+      - A mapping of text patterns to their replacements. Each key in the mapping will be replaced by its corresponding value in the file content.
+    - `outputPath: string`
+      - The path where the modified content will be written.
+
+#### Returns
+
+- `void`
+  - This function does not return any value.
+
+#### Example Usage
+
+```typescript
+import { replaceTextInFile } from "@/utils/replaceTextInFile.js";
+
+replaceTextInFile({
+  sourcePath: "./input.txt",
+  replacementMapping: {
+    foo: "bar",
+    hello: "world",
+  },
+  outputPath: "./output.txt",
+});
+```
+
+This example reads the content of `input.txt`, replaces all occurrences of "foo" with "bar" and "hello" with "world", and writes the modified content to `output.txt`.
