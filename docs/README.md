@@ -109,3 +109,56 @@ replaceTextInFile({
 ```
 
 This example reads the content of `input.txt`, replaces all occurrences of "foo" with "bar" and "hello" with "world", and writes the modified content to `output.txt`.
+
+### `getProjectInformation`
+
+Retrieves project information based on the provided project name input. This function processes the input to determine the project's name and path, taking into account various scenarios such as scoped packages and execution within the current directory.
+
+#### Parameters
+
+- `projectNameInput: string`
+  - The input string representing the project name or path. It can include trailing slashes or be a relative path like `.`.
+
+#### Returns
+
+- `projectInformation: object`
+  - An object including user-created project information that you might need for some features:
+    - `name: string`
+      - The determined name of the project. If the input is a scoped package, it includes the scope.
+    - `path: string`
+      - The absolute path to the project directory, resolved from the directory where the user runs your CLI tool.
+    - `isCreatedInCliExecutionFolder: boolean`
+      - A flag indicating whether the project was created in the CLI execution folder (e.g., using `.` as the project name).
+
+#### Example Usage
+
+```typescript
+import { getProjectInformation } from "@/utils/getProjectInformation";
+
+// Assume that the user runs the CLI tool from ~/Document
+const projectInfo = getProjectInformation("my-project");
+console.log(projectInfo);
+// {
+//   name: "my-project",
+//   path: "~/Document/my-project",
+//   isCreatedInCliExecutionFolder: false
+// }
+
+// Assume that the user runs the CLI tool from ~/Document
+const scopedProjectInfo = getProjectInformation("@scope/my-project");
+console.log(scopedProjectInfo);
+// {
+//   name: "@scope/my-project",
+//   path: "~/Document/scope/my-project",
+//   isCreatedInCliExecutionFolder: false
+// }
+
+// Assume that the user runs the CLI tool from ~/Document/myApp
+const cliExecutionProjectInfo = getProjectInformation(".");
+console.log(cliExecutionProjectInfo);
+// {
+//   name: "myApp",
+//   path: "~/Document/myApp",
+//   isCreatedInCliExecutionFolder: true
+// }
+```
