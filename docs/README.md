@@ -162,3 +162,41 @@ console.log(cliExecutionProjectInfo);
 //   isCreatedInCliExecutionFolder: true
 // }
 ```
+
+### `updateProjectPackageJson`
+
+Writes the provided package JSON content to the specified path, formatting it with 2 spaces for readability.
+
+#### Parameters
+
+- `packageJsonPath: string`
+
+  - The file path where the package JSON should be written.
+
+- `packageJsonContent: PackageJson`
+  - The content of the package JSON to be written. This should conform to the `PackageJson` type from [`type-fest`](https://github.com/sindresorhus/type-fest).
+
+#### Returns
+
+- `void`
+  - This function does not return a value.
+
+#### Example Usage
+
+```typescript
+import fs from "fs-extra";
+import { type PackageJson } from "type-fest";
+
+import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson";
+
+const packageJsonPath = "./path/to/package.json";
+const packageJsonContent: PackageJson = {
+  name: "example-package",
+  version: "1.0.0",
+  scripts: {
+    start: "node index.js",
+  },
+};
+
+updateProjectPackageJson(packageJsonPath, packageJsonContent);
+```
