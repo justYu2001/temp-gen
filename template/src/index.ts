@@ -9,7 +9,7 @@ const main = async () => {
 
   p.intro(chalk.bgCyan.black("  create-temp-gen  "));
 
-  const { projectName } = await runCli();
+  await runCli();
 
   // Custom your template generation logic here.
 
