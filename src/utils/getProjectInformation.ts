@@ -2,6 +2,8 @@ import path from "node:path";
 
 import { removeTrailingSlash } from "@/utils/removeTrailingSlash.js";
 
+export type ProjectInformation = ReturnType<typeof getProjectInformation>;
+
 export const getProjectInformation = (projectNameInput: string) => {
   const input = removeTrailingSlash(projectNameInput);
 

@@ -7,7 +7,7 @@ import fs from "fs-extra";
 import { type PackageJson } from "type-fest";
 
 import { runCli } from "@/cli/index.js";
-import { createProject } from "@/utils/createProject.js";
+import { createProject } from "@/helpers/createProject.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
 
 const main = async () => {
@@ -17,7 +17,7 @@ const main = async () => {
 
   const { projectName } = await runCli();
 
-  const project = createProject(projectName);
+  const project = await createProject(projectName);
 
   const packageJsonPath = path.join(project.path, "package.json");
   const packageJson = fs.readJSONSync(packageJsonPath) as PackageJson;

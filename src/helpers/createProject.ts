@@ -1,9 +1,8 @@
 import path from "node:path";
 
 import chalk from "chalk";
-import fs from "fs-extra";
 
-import { PACKAGE_ROOT } from "@/constants.js";
+import { scaffoldProject } from "@/helpers/scaffoldProject.js";
 import { getProjectInformation } from "@/utils/getProjectInformation.js";
 import { logger } from "@/utils/logger.js";
 import { renameFileInFolder } from "@/utils/renameFileInFolder.js";
@@ -15,14 +14,9 @@ const FILES_INCLUDING_PROJECT_NAME = [
   "src/utils/getProjectInformation.ts",
 ];
 
-export const createProject = (projectNameInput: string) => {
-  const sourcePath = path.join(PACKAGE_ROOT, "template");
-
+export const createProject = async (projectNameInput: string) => {
   const project = getProjectInformation(projectNameInput);
-
-  fs.copySync(sourcePath, project.path);
-
-  renameFileInFolder(project.path, "_gitignore", ".gitignore");
+  await scaffoldProject(project);
   renameFileInFolder(project.path, "_prettierrc.mjs", ".prettierrc.mjs");
   renameFileInFolder(project.path, "_eslintrc.cjs", ".eslintrc.cjs");
   renameFileInFolder(project.path, "_eslintignore", ".eslintignore");
