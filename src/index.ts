@@ -8,6 +8,7 @@ import { type PackageJson } from "type-fest";
 
 import { runCli } from "@/cli/index.js";
 import { createProject } from "@/helpers/createProject.js";
+import { setImportAlias } from "@/helpers/setImportAlias.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
 
 const main = async () => {
@@ -15,9 +16,11 @@ const main = async () => {
 
   p.intro(chalk.bgCyan.black("  create-temp-gen  "));
 
-  const { projectName } = await runCli();
+  const { projectName, flags } = await runCli();
 
   const project = await createProject(projectName);
+
+  setImportAlias(project.path, flags.importAlias);
 
   const packageJsonPath = path.join(project.path, "package.json");
   const packageJson = fs.readJSONSync(packageJsonPath) as PackageJson;

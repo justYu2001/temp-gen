@@ -8,3 +8,4 @@ export const PACKAGE_ROOT = path.resolve(distPath, "../");
 export const CLI_TOOL_NAME = "creat-temp-gen";
 
 export const DEFAULT_PROJECT_NAME = "my-temp-gen";
+export const DEFAULT_IMPORT_ALIAS = "@/";
