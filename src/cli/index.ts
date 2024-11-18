@@ -3,6 +3,7 @@ import { Command } from "commander";
 
 import { validateProjectName } from "@/cli/validateProjectName.js";
 import { CLI_TOOL_NAME, DEFAULT_PROJECT_NAME } from "@/constants.js";
+
 import { validateImportAlias } from "./validateImportAlias.js";
 
 interface CliResult {
