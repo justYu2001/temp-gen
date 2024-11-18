@@ -1,5 +1,15 @@
 # temp-gen
 
+## 0.2.0
+
+### Minor Changes
+
+- [#12](https://github.com/justYu2001/temp-gen/pull/12) [`4620eff`](https://github.com/justYu2001/temp-gen/commit/4620eff2b865951fe15121905a4dc1334d3f3fd0) Thanks [@justYu2001](https://github.com/justYu2001)! - set project name by command line argument
+
+- [#14](https://github.com/justYu2001/temp-gen/pull/14) [`ef3576d`](https://github.com/justYu2001/temp-gen/commit/ef3576d5e4707aaffc034b9f3ac5eccfa8f28181) Thanks [@justYu2001](https://github.com/justYu2001)! - check if any files have been overwritten or not when creating a project
+
+- [#15](https://github.com/justYu2001/temp-gen/pull/15) [`10e7c74`](https://github.com/justYu2001/temp-gen/commit/10e7c74fba3a3c88cb9087d1c044d28c3e250b2b) Thanks [@justYu2001](https://github.com/justYu2001)! - set custom import alias
+
 ## 0.1.0
 
 ### Minor Changes
