@@ -2,7 +2,7 @@ import * as p from "@clack/prompts";
 import { Command } from "commander";
 
 import { validateProjectName } from "@/cli/validateProjectName.js";
-import { CLI_TOOL_NAME, DEFAULT_PROJECT_NAME } from "@/constants.js";
+import { CLI_TOOL_NAME, DEFAULT_IMPORT_ALIAS, DEFAULT_PROJECT_NAME } from "@/constants.js";
 
 import { validateImportAlias } from "./validateImportAlias.js";
 
@@ -16,7 +16,7 @@ interface CliResult {
 const DEFAULT_CLI_RESULT: CliResult = {
   projectName: DEFAULT_PROJECT_NAME,
   flags: {
-    importAlias: "@/",
+    importAlias: DEFAULT_IMPORT_ALIAS,
   },
 };
 
