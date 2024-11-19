@@ -8,6 +8,7 @@ import { type PackageJson } from "type-fest";
 
 import { runCli } from "@/cli/index.js";
 import { createProject } from "@/helpers/createProject.js";
+import { installDependencies } from "@/helpers/installDependencies.js";
 import { setImportAlias } from "@/helpers/setImportAlias.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
 
@@ -26,6 +27,10 @@ const main = async () => {
   const packageJson = fs.readJSONSync(packageJsonPath) as PackageJson;
   packageJson.name = project.name;
   updateProjectPackageJson(packageJsonPath, packageJson);
+
+  if (!flags.noInstall) {
+    await installDependencies({ projectPath: project.path });
+  }
 
   process.exit(0);
 };

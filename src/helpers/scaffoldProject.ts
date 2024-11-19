@@ -71,4 +71,6 @@ export const scaffoldProject = async (project: ProjectInformation) => {
   fs.copySync(sourcePath, project.path);
 
   renameFileInFolder(project.path, "_gitignore", ".gitignore");
+
+  spinner.stop();
 };
