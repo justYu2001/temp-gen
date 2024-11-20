@@ -11,6 +11,8 @@ import { setImportAlias } from "@/helpers/setImportAlias.js";
 import { getProjectInformation } from "@/utils/getProjectInformation.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
 
+import { installDependencies } from "../../src/helpers/installDependencies.js";
+
 const main = async () => {
   console.clear();
 
@@ -28,6 +30,10 @@ const main = async () => {
   const packageJson = fs.readJSONSync(packageJsonPath) as PackageJson;
   packageJson.name = project.name;
   updateProjectPackageJson(packageJsonPath, packageJson);
+
+  if (!flags.noInstall) {
+    await installDependencies({ projectPath: project.path });
+  }
 
   process.exit(0);
 };
