@@ -200,3 +200,16 @@ const packageJsonContent: PackageJson = {
 
 updateProjectPackageJson(packageJsonPath, packageJsonContent);
 ```
+
+### `getPackageManager`
+
+Determines the package manager being used based on the `npm_config_user_agent` environment variable.
+
+#### Parameters
+
+- None
+
+#### Returns
+
+- `PackageManager`
+  - A string representing the package manager. Possible values are `"npm"`, `"pnpm"`, `"yarn"`, or `"bun"`. Defaults to `"npm"` if the user agent is not set or recognized.
