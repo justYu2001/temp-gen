@@ -1,3 +1,5 @@
+import * as process from "node:process";
+
 import * as p from "@clack/prompts";
 import { Command } from "commander";
 
@@ -49,36 +51,43 @@ export const runCli = async () => {
 
   const packageManager = getPackageManager();
 
-  const interactiveCliResult = await p.group({
-    ...(!projectNameFromCommand && {
-      projectName: () => {
+  const interactiveCliResult = await p.group(
+    {
+      ...(!projectNameFromCommand && {
+        projectName: () => {
+          return p.text({
+            message: "What will your project be called?",
+            defaultValue: DEFAULT_PROJECT_NAME,
+            validate: validateProjectName,
+          });
+        },
+      }),
+      importAlias: () => {
         return p.text({
-          message: "What will your project be called?",
-          defaultValue: DEFAULT_PROJECT_NAME,
-          validate: validateProjectName,
+          message: "What import alias would you like to use?",
+          defaultValue: flagsFromCommand.importAlias,
+          placeholder: flagsFromCommand.importAlias,
+          validate: validateImportAlias,
         });
       },
-    }),
-    importAlias: () => {
-      return p.text({
-        message: "What import alias would you like to use?",
-        defaultValue: flagsFromCommand.importAlias,
-        placeholder: flagsFromCommand.importAlias,
-        validate: validateImportAlias,
-      });
+      ...(!flagsFromCommand.noInstall && {
+        install: () => {
+          return p.confirm({
+            message:
+              `Should we run '${packageManager}` +
+              (packageManager === "yarn" ? `'?` : ` install' for you?`),
+            initialValue: !DEFAULT_CLI_RESULT.flags.noInstall,
+          });
+        },
+      }),
+      // Ask any questions you want here
     },
-    ...(!flagsFromCommand.noInstall && {
-      install: () => {
-        return p.confirm({
-          message:
-            `Should we run '${packageManager}` +
-            (packageManager === "yarn" ? `'?` : ` install' for you?`),
-          initialValue: !DEFAULT_CLI_RESULT.flags.noInstall,
-        });
+    {
+      onCancel() {
+        process.exit(1);
       },
-    }),
-    // Ask any questions you want here
-  });
+    },
+  );
 
   return {
     projectName: projectNameFromCommand ?? interactiveCliResult.projectName!,
