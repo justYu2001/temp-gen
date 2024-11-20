@@ -12,6 +12,7 @@ interface CliResult {
   flags: {
     importAlias: string;
     noInstall: boolean;
+    noGit: boolean;
   };
 }
 
@@ -20,6 +21,7 @@ const DEFAULT_CLI_RESULT: CliResult = {
   flags: {
     importAlias: DEFAULT_IMPORT_ALIAS,
     noInstall: false,
+    noGit: false,
   },
 };
 
@@ -35,6 +37,11 @@ export const runCli = async () => {
       "--noInstall",
       "Explicitly tell the CLI to not run the package manager's install command",
       DEFAULT_CLI_RESULT.flags.noInstall,
+    )
+    .option(
+      "--noGit",
+      "Explicitly tell the CLI to not initialize a new git repo in the project",
+      false,
     )
     .option(
       "-i, --import-alias <alias>",
@@ -78,6 +85,14 @@ export const runCli = async () => {
           });
         },
       }),
+      ...(!flagsFromCommand.noGit && {
+        git: () => {
+          return p.confirm({
+            message: "Should we initialize a Git repository and stage the changes?",
+            initialValue: !DEFAULT_CLI_RESULT.flags.noGit,
+          });
+        },
+      }),
     },
     {
       onCancel() {
@@ -91,6 +106,7 @@ export const runCli = async () => {
     flags: {
       importAlias: interactiveCliResult.importAlias,
       noInstall: !interactiveCliResult.install || flagsFromCommand.noInstall,
+      noGit: !interactiveCliResult.git || flagsFromCommand.noGit,
     },
   };
 };
