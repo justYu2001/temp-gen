@@ -7,3 +7,4 @@ Interactive CLI to start a template generation CLI tool.
 | Argument/Option | Description                                              |
 | --------------- | -------------------------------------------------------- |
 | [directory]     | Include a directory argument with a name for the project |
+| --noInstall     | Generate project without installing dependencies         |
