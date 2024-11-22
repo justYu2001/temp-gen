@@ -8,6 +8,7 @@ import { type PackageJson } from "type-fest";
 
 import { runCli } from "@/cli/index.js";
 import { createProject } from "@/helpers/createProject.js";
+import { initializeGit } from "@/helpers/git.js";
 import { installDependencies } from "@/helpers/installDependencies.js";
 import { setImportAlias } from "@/helpers/setImportAlias.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
@@ -30,6 +31,10 @@ const main = async () => {
 
   if (!flags.noInstall) {
     await installDependencies({ projectPath: project.path });
+  }
+
+  if (!flags.noGit) {
+    await initializeGit(project);
   }
 
   process.exit(0);

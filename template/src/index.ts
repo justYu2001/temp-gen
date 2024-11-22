@@ -7,11 +7,11 @@ import fs from "fs-extra";
 import { type PackageJson } from "type-fest";
 
 import { runCli } from "@/cli/index.js";
+import { initializeGit } from "@/helpers/git.js";
+import { installDependencies } from "@/helpers/installDependencies.js";
 import { setImportAlias } from "@/helpers/setImportAlias.js";
 import { getProjectInformation } from "@/utils/getProjectInformation.js";
 import { updateProjectPackageJson } from "@/utils/updateProjectPackageJson.js";
-
-import { installDependencies } from "../../src/helpers/installDependencies.js";
 
 const main = async () => {
   console.clear();
@@ -33,6 +33,10 @@ const main = async () => {
 
   if (!flags.noInstall) {
     await installDependencies({ projectPath: project.path });
+  }
+
+  if (!flags.noGit) {
+    await initializeGit(project);
   }
 
   process.exit(0);
