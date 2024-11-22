@@ -1,5 +1,15 @@
 # temp-gen
 
+## 0.3.0
+
+### Minor Changes
+
+- [#18](https://github.com/justYu2001/temp-gen/pull/18) [`123902d`](https://github.com/justYu2001/temp-gen/commit/123902d86260bed86a8f9efb4f90759bf4019ccc) Thanks [@justYu2001](https://github.com/justYu2001)! - CLI can be canceled by pressing ctrl+c
+
+- [#16](https://github.com/justYu2001/temp-gen/pull/16) [`d6c75bf`](https://github.com/justYu2001/temp-gen/commit/d6c75bf085f66d2212aa2095c233a9d78e011480) Thanks [@justYu2001](https://github.com/justYu2001)! - add install dependencies option
+
+- [#19](https://github.com/justYu2001/temp-gen/pull/19) [`16734c6`](https://github.com/justYu2001/temp-gen/commit/16734c66b366451e01a50f2fe18818ce1eb5bffa) Thanks [@justYu2001](https://github.com/justYu2001)! - add git option to CLI
+
 ## 0.2.0
 
 ### Minor Changes
